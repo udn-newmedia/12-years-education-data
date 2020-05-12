@@ -65,8 +65,6 @@ export default {
     background-color: #4891f2
   p
     color:#ffffff
-    .t-highlight
-      font-weight: bold
     a
       color:#ffffff
 
