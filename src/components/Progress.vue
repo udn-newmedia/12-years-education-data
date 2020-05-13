@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.progress
+  section.progress
     div.progress-item(v-for="item in cardAmount" :key="item" :class="progressItemClassAttr(item)")
 </template>
 

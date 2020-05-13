@@ -1,13 +1,13 @@
 <template lang="pug">
-  div.card(:class="cardClassAttr" :style="{ transform: cardStyleTransform }")
-    div.card__cover(v-if="position === 'cover' && index === 0" :class="cardCoverClassAttr")
+  article.card(:class="cardClassAttr" :style="{ transform: cardStyleTransform }")
+    section.card__cover(v-if="position === 'cover' && index === 0" :class="cardCoverClassAttr")
       <slot name=cover />
-    div.card__content(v-if="hasContent" :class="cardContentClassAttr")
-      div.card__content__title__container()
+    section.card__content(v-if="hasContent" :class="cardContentClassAttr")
+      div.card__content__title__container
         <slot name=title />
-      div.card__content__chart__container
+      figure.card__content__chart__container
         img.card__content__chart(:src="cardChartSrcAttr")
-      div.card__content__info
+      figcaption.card__content__info
         div.card__content__note
           <slot name=note />
         div.card__content__source

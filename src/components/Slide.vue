@@ -1,5 +1,5 @@
 <template lang="pug">
-  section.slide(:id="'slide-' + index")
+  div.slide(:id="'slide-' + index")
     slot
 </template>
 

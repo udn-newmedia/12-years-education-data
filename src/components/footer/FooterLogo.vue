@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-logo">
+  <section class="footer-logo">
     <a
       href="https://udn.com/news/index" 
       target="_blank"
@@ -31,7 +31,7 @@
     >
       <img :src="img.vision" alt="聯合報系願景工程">
     </a>
-  </div>
+  </section>
 </template>
 
 <script>

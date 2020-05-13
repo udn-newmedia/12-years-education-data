@@ -1,13 +1,13 @@
 <template lang="pug">
-  div.crucial-figures
-    div.crucial-figures__frame(:class="crucialFiguresFrameClassAttr")
+  main.crucial-figures
+    section.crucial-figures__frame(:class="crucialFiguresFrameClassAttr")
       Marquee
       CardsCollector
       Progress(v-show="!this.$store.state.isCrucialFiguresInitial")
-    div#slides.crucial-figures__slides-container
-      div.crucial-figures__slides__decoration(:class="crucialFiguresSlidesMaskClassAttr")
+    section#slides.crucial-figures__slides-container
+      header.crucial-figures__slides__decoration(:class="crucialFiguresSlidesMaskClassAttr")
         div.crucial-figures__slides__decoration__title(v-if="deviceType === 'pc'" :class="decorationShowClassAttr") {{decorationTitle}}
-      div.crucial-figures__slides
+      article.crucial-figures__slides
         slot
       div.crucial-figures__slides__decoration(:class="crucialFiguresSlidesMaskClassAttr")
         div.crucial-figures__slides__decoration__body

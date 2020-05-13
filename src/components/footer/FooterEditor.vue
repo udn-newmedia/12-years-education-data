@@ -1,7 +1,7 @@
 <template>
-  <div class="footer-editor">
+  <section class="footer-editor">
     <slot></slot>
-  </div>
+  </section>
 </template>
 
 <script>
