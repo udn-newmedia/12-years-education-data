@@ -1,15 +1,15 @@
 <template>
-  <div class="article-column-one">
+  <figure class="article-column-one">
     <img
       :src="selectSrc_3(srcMob, srcPad, srcPc)"
       :alt="alt"
     >
-    <div class="article-column-one__description">
+    <figcaption class="article-column-one__description">
       <p class="small">
         <slot />
       </p>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 </template>
 
 <script>
@@ -36,7 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/style/_mixins.scss';
 .article-column-one {
   position: relative;
   width: 100%;

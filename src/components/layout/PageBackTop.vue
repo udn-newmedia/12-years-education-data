@@ -54,7 +54,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/style/_mixins.scss';
 .page-back-top {
   position: fixed;
   z-index: 50;

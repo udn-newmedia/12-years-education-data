@@ -137,7 +137,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .card
   pointer-events: auto
   position: absolute

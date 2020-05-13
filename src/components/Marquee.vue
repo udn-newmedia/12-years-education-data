@@ -74,7 +74,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .marquee
   position: absolute
   pointer-events: none

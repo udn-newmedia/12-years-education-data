@@ -65,7 +65,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .cards-collector
   position: relative
   pointer-events: none

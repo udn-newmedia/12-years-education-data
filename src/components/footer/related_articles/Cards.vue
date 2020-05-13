@@ -54,7 +54,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .cards-container
   position: relative
   &.cards-container--small
