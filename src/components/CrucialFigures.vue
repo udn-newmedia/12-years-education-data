@@ -106,10 +106,10 @@ export default {
     }
   },
   mounted() {
-    this.addObservableScrollEvent('#slides', this.observableScrollEventOption);
+    this.addObservableScrollEvent('#slides', this.observableScrollEventOption, true);
   },
   destroyed() {
-    this.removeObservableScrollEvent('#slides', this.observableScrollEventOption);
+    this.removeObservableScrollEvent('#slides', this.observableScrollEventOption, true);
   },
 }
 </script>
