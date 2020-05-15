@@ -17,15 +17,17 @@
 const typePixel = 'p';
 const typeWindowHeight = 'w';
 const targetStyle = {
-  outline: '#4CAF50 solid 5px',
+  outline: 'pink solid 1px',
 }
 const indicatorStyle = {
   position: 'absolute',
   zIndex: 9999,
-  left: 0,
-  backgroundColor: 'red',
-  color: '#ffffff'
+  color: '#ffffff',
+  padding: '3px'
 }
+
+const indicatorStartBgColor = 'lightblue';
+const indicatorEndBgColor = 'lightgreen';
 
 class OberservableElement {
   constructor(target, top, bottom) {
@@ -60,7 +62,7 @@ class TriggerIndicator extends OberservableElement {
     return document.querySelector(`#${this.indicatorId}`) !== null;
   }
 
-  get targetElement() {
+  get indicatorElement() {
     return document.querySelector(`#${this.indicatorId}`);
   }
 
@@ -71,28 +73,40 @@ class TriggerIndicator extends OberservableElement {
     document.getElementsByTagName('body')[0].appendChild(indicator);
 
     this.setIndicatorPos();
+    this.addElementStyle(indicatorStyle);
   }
 
   setIndicatorPos() {
-    if (this.pos === 'up') this.targetElement.style.top = `${this.top}px`;
+    if (this.pos === 'start') {
+      const loc = this.top + this.targetElement.offsetTop - window.innerHeight;
+      this.indicatorElement.style.top = `${loc}px`;
+      this.indicatorElement.style.right = 0;
+      this.indicatorElement.style.backgroundColor = indicatorStartBgColor;
+    }
+    if (this.pos === 'end') {
+      const loc = this.bottom + this.targetElement.offsetTop + this.targetElement.offsetHeight - window.innerHeight;
+      this.indicatorElement.style.top = `${loc}px`;
+      this.indicatorElement.style.left = 0;
+      this.indicatorElement.style.backgroundColor = indicatorEndBgColor;
+    }
+  }
 
-    // TODO: bottom + OffsetTop + ClientHeight
-    if (this.pos === 'down') this.targetElement.style.bottom = `${this.bottom}px`;
+  addElementStyle(style) {
+    Object.keys(style).forEach(e => {
+      this.indicatorElement.style[e] = style[e];
+    })
   }
 }
 
-
-function observableEventDebugger(target, top, bottom,) {
+function observableEventDebugger(target, top, bottom) {
   const e = new OberservableElement(target, top, bottom);
   e.addElementStyle(targetStyle);
 
-  const indicatorUp = new TriggerIndicator(target, top, bottom, 'up');
-  const indicatorDown = new TriggerIndicator(target, top, bottom, 'down');
-  if (!indicatorUp.isExist && !indicatorDown.isExist) {
-    indicatorUp.appendIndicator();
-    indicatorUp.addElementStyle(indicatorStyle);
-    indicatorDown.appendIndicator();
-    indicatorDown.addElementStyle(indicatorStyle);
+  const indicatorStart = new TriggerIndicator(target, top, bottom, 'start');
+  const indicatorEnd = new TriggerIndicator(target, top, bottom, 'end');
+  if (!indicatorStart.isExist && !indicatorEnd.isExist) {
+    indicatorStart.appendIndicator();
+    indicatorEnd.appendIndicator();
   }
 
   return ;

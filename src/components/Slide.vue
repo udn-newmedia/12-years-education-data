@@ -31,10 +31,10 @@ export default {
     }
   },
   mounted() {
-    this.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
+    this.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
   },
   destroyed() {
-    this.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
+    this.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
   },
 }
 </script>
