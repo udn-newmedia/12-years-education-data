@@ -30,11 +30,10 @@ const indicatorStartBgColor = 'lightblue';
 const indicatorEndBgColor = 'lightgreen';
 
 class OberservableElement {
-  constructor(target, top, bottom) {
-    this.target = target;
-    this.top = top;
-    this.bottom = bottom;
-    this.elemnt = null;
+  constructor(config) {
+    this.target = config.target;
+    this.top = config.top;
+    this.bottom = config.bottom;
   }
 
   get targetElement() {
@@ -49,8 +48,8 @@ class OberservableElement {
 }
 
 class TriggerIndicator extends OberservableElement {
-  constructor(target, top, bottom, pos) {
-    super(target, top, bottom);
+  constructor(config, pos) {
+    super(config);
     this.pos = pos;
   }
 
@@ -78,13 +77,13 @@ class TriggerIndicator extends OberservableElement {
 
   setIndicatorPos() {
     if (this.pos === 'start') {
-      const loc = this.top + this.targetElement.offsetTop - window.innerHeight;
+      const loc = this.targetElement.getBoundingClientRect().top + window.scrollY - this.top;
       this.indicatorElement.style.top = `${loc}px`;
       this.indicatorElement.style.right = 0;
       this.indicatorElement.style.backgroundColor = indicatorStartBgColor;
     }
     if (this.pos === 'end') {
-      const loc = this.bottom + this.targetElement.offsetTop + this.targetElement.offsetHeight - window.innerHeight;
+      const loc = this.targetElement.getBoundingClientRect().top + window.scrollY + this.targetElement.offsetHeight - this.bottom;
       this.indicatorElement.style.top = `${loc}px`;
       this.indicatorElement.style.left = 0;
       this.indicatorElement.style.backgroundColor = indicatorEndBgColor;
@@ -98,12 +97,12 @@ class TriggerIndicator extends OberservableElement {
   }
 }
 
-function observableEventDebugger(target, top, bottom) {
-  const e = new OberservableElement(target, top, bottom);
+function observableEventDebugger(config) {
+  const e = new OberservableElement(config);
   e.addElementStyle(targetStyle);
 
-  const indicatorStart = new TriggerIndicator(target, top, bottom, 'start');
-  const indicatorEnd = new TriggerIndicator(target, top, bottom, 'end');
+  const indicatorStart = new TriggerIndicator(config, 'start');
+  const indicatorEnd = new TriggerIndicator(config, 'end');
   if (!indicatorStart.isExist && !indicatorEnd.isExist) {
     indicatorStart.appendIndicator();
     indicatorEnd.appendIndicator();
@@ -158,5 +157,6 @@ export default function(target, option, debugMode) {
     if (option.underEvent && pos.bottom < finalBottom) option.underEvent();
   }
 
-  if (debugMode) observableEventDebugger(target, finalTop, finalBottom);
+  const debuggerConfig = {target, top: finalTop, bottom: finalBottom};
+  if (debugMode) observableEventDebugger(debuggerConfig);
 }

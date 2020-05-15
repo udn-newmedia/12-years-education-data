@@ -115,6 +115,8 @@ export default {
 </script>
 
 <style lang="sass">
+body
+  background-color: #303236
 #app
   background-color: #303236
 .article

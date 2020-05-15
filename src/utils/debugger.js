@@ -34,4 +34,4 @@ function removeBorder(target = document, el='*') {
   return `${target}: debugger mode disable!`;
 }
 
-export { addBorder, removeBorder };
+export default { addBorder, removeBorder }

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { scrollEvent } from '@/mixins/scrollEvent.js';
+import erikoScroller from '@/utils/scrollEvent.js';
 import { autoResize_3 } from '@/mixins/masterBuilder.js';
 
 import CardsCollector from '@/components/cards_collector/CardsCollector.vue';
@@ -29,7 +29,7 @@ import Progress from '@/components/Progress.vue';
 
 export default {
   name: 'CrucialFigures',
-  mixins: [scrollEvent, autoResize_3],
+  mixins: [autoResize_3],
   components: {
     CardsCollector,
     Marquee,
@@ -106,10 +106,10 @@ export default {
     }
   },
   mounted() {
-    this.addObservableScrollEvent('#slides', this.observableScrollEventOption, true);
+    new erikoScroller().addObservableScrollEvent('#slides', this.observableScrollEventOption, true);
   },
   destroyed() {
-    this.removeObservableScrollEvent('#slides', this.observableScrollEventOption, true);
+    new erikoScroller().removeObservableScrollEvent('#slides', this.observableScrollEventOption, true);
   },
 }
 </script>

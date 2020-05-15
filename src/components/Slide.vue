@@ -4,11 +4,10 @@
 </template>
 
 <script>
-import { scrollEvent } from '@/mixins/scrollEvent.js';
+import erikoScroller from '@/utils/scrollEvent.js';
 
 export default {
   name: 'Slide',
-  mixins: [scrollEvent],
   props: {
     index: {
       tpye: Number,
@@ -31,16 +30,17 @@ export default {
     }
   },
   mounted() {
-    this.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
+    new erikoScroller().addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
   },
   destroyed() {
-    this.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
+    new erikoScroller().removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
   },
 }
 </script>
 
 <style lang="sass" scoped>
 .slide
+  position: relative
   pointer-events: auto
   width: 100%
   min-height: 100vh
