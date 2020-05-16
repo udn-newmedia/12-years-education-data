@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import erikoScroller from '@/utils/scrollEvent.js';
+import ErikoScroller from '@/utils/scrollEvent.js';
 
 export default {
   name: 'Slide',
@@ -12,6 +12,11 @@ export default {
     index: {
       tpye: Number,
       required: true
+    }
+  },
+  data() {
+    return {
+      es: new ErikoScroller()
     }
   },
   computed: {
@@ -30,10 +35,10 @@ export default {
     }
   },
   mounted() {
-    new erikoScroller().addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
+    this.es.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
   },
   destroyed() {
-    new erikoScroller().removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
+    this.es.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
   },
 }
 </script>
@@ -45,7 +50,7 @@ export default {
   width: 100%
   min-height: 100vh
   padding: 64px 16px 0 16px
-  // border: solid 1px red
+  margin-top: 4px
   @include pad
     padding: 64px 112px
   @include pc

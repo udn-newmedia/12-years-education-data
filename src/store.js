@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentSlideIndex: 0,
-    cardAmount: 10,
+    cardAmount: 11,
     isCrucialFiguresInitial: true
   },
   mutations: {

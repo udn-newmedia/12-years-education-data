@@ -38,6 +38,10 @@
       template(v-if="cardAmount-item === 10")
         h4(slot='title') 補習費用與家數變化
         p.small(slot='source') 資料來源／教育部
+      template(v-if="cardAmount-item === 11")
+        h4(slot='title') 高中生近5年海外留學人數
+        p.small(slot='source') 資料來源／教育部
+        
 </template>
 
 <script>

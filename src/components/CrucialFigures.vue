@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import erikoScroller from '@/utils/scrollEvent.js';
+import ErikoScroller from '@/utils/scrollEvent.js';
 import { autoResize_3 } from '@/mixins/masterBuilder.js';
 
 import CardsCollector from '@/components/cards_collector/CardsCollector.vue';
@@ -50,26 +50,8 @@ export default {
         9: '私中風氣',
         10: '補習費增',
       },
+      es: new ErikoScroller()
     };
-  },
-  methods: {
-    handleEnterEvent() {
-      this.isCffAtBottom = false;
-      if (this.$store.state.isCrucialFiguresInitial) {
-        this.$store.dispatch('updatedIsCrucialFiguresInitial', false);
-      }
-    },
-    handleLeaveEvent() {
-      if (!this.$store.state.isCrucialFiguresInitial) {
-        this.$store.dispatch('updatedIsCrucialFiguresInitial', true);
-      }
-    },
-    handleAboveEvent() {
-      this.$store.dispatch('updatedCurrentSlideIndex', 0);
-    },
-    handleUnderEvent() {
-      this.isCffAtBottom = true;
-    }
   },
   computed: {
     crucialFiguresFrameClassAttr() {
@@ -105,11 +87,30 @@ export default {
       return { 'decoration-item-disabled': this.$store.state.isCrucialFiguresInitial }
     }
   },
+  methods: {
+    handleEnterEvent() {
+      this.isCffAtBottom = false;
+      if (this.$store.state.isCrucialFiguresInitial) {
+        this.$store.dispatch('updatedIsCrucialFiguresInitial', false);
+      }
+    },
+    handleLeaveEvent() {
+      if (!this.$store.state.isCrucialFiguresInitial) {
+        this.$store.dispatch('updatedIsCrucialFiguresInitial', true);
+      }
+    },
+    handleAboveEvent() {
+      this.$store.dispatch('updatedCurrentSlideIndex', 0);
+    },
+    handleUnderEvent() {
+      this.isCffAtBottom = true;
+    }
+  },
   mounted() {
-    new erikoScroller().addObservableScrollEvent('#slides', this.observableScrollEventOption, true);
+    this.es.addObservableScrollEvent('#slides', this.observableScrollEventOption, true);
   },
   destroyed() {
-    new erikoScroller().removeObservableScrollEvent('#slides', this.observableScrollEventOption, true);
+    this.es.removeObservableScrollEvent('#slides', this.observableScrollEventOption, true);
   },
 }
 </script>

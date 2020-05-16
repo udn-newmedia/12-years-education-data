@@ -3,7 +3,7 @@
  */
 import observableEvent from '@/utils/observableEvent.js';
 
-class ScrollEvent {
+export default class ScrollEvent {
   constructor() {
     this.ticking = false
   }
@@ -54,5 +54,3 @@ class ScrollEvent {
     document.removeEventListener('scroll', () => this.handleScroll(() => observableEvent(...params, debugMode)), true);
   }
 }
-
-export default ScrollEvent;
