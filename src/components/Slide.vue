@@ -78,4 +78,9 @@ export default {
     margin-top: 48px
   a
     color: #8c8e93
+
+.slide-arrow-conttainer
+  pointer-events: none
+  margin-top: 64px
+  margin-left: 16px
 </style>

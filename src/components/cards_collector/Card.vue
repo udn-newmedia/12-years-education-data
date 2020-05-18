@@ -242,4 +242,12 @@ export default {
       a
         color: #8c8e93
   
+header
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  
+  h1
+    margin-bottom: 16px
 </style>
