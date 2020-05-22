@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ErikoScroller from '@/utils/scrollEvent.js';
+import { ErikoScroller } from 'eriko-scroller.js';
 import { autoResize_3 } from '@/mixins/masterBuilder.js';
 
 import CardsCollector from '@/components/cards_collector/CardsCollector.vue';
@@ -50,7 +50,7 @@ export default {
         9: '私中風氣',
         10: '補習費增',
       },
-      es: new ErikoScroller()
+      es: new ErikoScroller(),
     };
   },
   computed: {

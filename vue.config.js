@@ -12,6 +12,7 @@ module.exports = {
   publicPath,
   pages,
   chainWebpack: (config) => {
+    config.module.rules.delete('eslint');
     config.module
       .rule("pug")
       .test(/\.pug$/)

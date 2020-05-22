@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import ErikoScroller from '@/utils/scrollEvent.js';
+import { ErikoScroller } from 'eriko-scroller.js';
 
 export default {
   name: 'Slide',
@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      es: new ErikoScroller()
+      es: new ErikoScroller(),
     }
   },
   computed: {
