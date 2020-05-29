@@ -107,10 +107,10 @@ export default {
     }
   },
   mounted() {
-    this.es.addObservableScrollEvent('#slides', this.observableScrollEventOption, true);
+    this.es.addObservableScrollEvent('#slides', this.observableScrollEventOption);
   },
   destroyed() {
-    this.es.removeObservableScrollEvent('#slides', this.observableScrollEventOption, true);
+    this.es.removeObservableScrollEvent('#slides', this.observableScrollEventOption);
   },
 }
 </script>

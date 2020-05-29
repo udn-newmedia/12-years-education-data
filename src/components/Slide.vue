@@ -35,10 +35,10 @@ export default {
     }
   },
   mounted() {
-    this.es.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
+    this.es.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
   },
   destroyed() {
-    this.es.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption, true);
+    this.es.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
   },
 }
 </script>

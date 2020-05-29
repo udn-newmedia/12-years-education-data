@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "eriko-scroller.js": "^1.0.8",
+    "eriko-scroller.js": "^1.0.11",
     "lodash.debounce": "^4.0.8",
     "vue": "^2.6.11",
     "vue-scrollto": "^2.18.1",
