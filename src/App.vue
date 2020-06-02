@@ -34,12 +34,19 @@
             h3 <mark>台灣學生最怕失敗</mark>
             p 台灣學生的「怕失敗」，被「國際學生能力評量計畫」（PISA）在報告中點名。PISA調查全球70多國的15歲學生，台灣有<strong>高達近9成學生，失敗時擔心別人的眼光；84%學生遇到失敗時，會擔憂自己是否沒有天分</strong>。反觀世界其他先進國家，如德國、荷蘭，只有不到40%學生會這樣想。
             div.slide__src
-              a(href="https://www.oecd-ilibrary.org/education/pisa-2018-results-volume-iii_2f9d3124-en" target="_blank" rel="noopener" ariaLabel="reference" name="reference" @click="handleOutlinkGA('怕失敗')") PISA完整報告：<br>Students’ self-efficacy and fear of failure
+              a(
+                href="https://www.oecd-ilibrary.org/education/pisa-2018-results-volume-iii_2f9d3124-en"
+                target="_blank"
+                rel="noopener"
+                ariaLabel="reference"
+                name="reference"
+                @click="handleOutlinkGA('怕失敗')"
+              ) PISA完整報告：<br>Students’ self-efficacy and fear of failure
             div.slide-arrow-conttainer
               NmdArrow(iconColor="#4891f2")
           template(v-if="item === 6")
             h3 <mark>台灣學生沒自信</mark>
-            p 台灣學生除了怕失敗，也缺少自我肯定。根據PISA調查，當被問及生活感受，<strong>台灣學生感到驕傲、自豪（proud）的比例全球最低，僅43％</strong>；此外，在「<a href="http://terms.naer.edu.tw/detail/1679150">自我效能（self-efficacy）</a>」調查中，台灣僅57％學生肯定自己具備同時處理多件事務的能力，遠低於OECD國家平均的70％。
+            p 台灣學生除了怕失敗，也缺少自我肯定。根據PISA調查，當被問及生活感受，<strong>台灣學生感到驕傲、自豪（proud）的比例全球最低，僅43％</strong>；此外，在「<a href="http://terms.naer.edu.tw/detail/1679150" target="_blank" rel="noopener" ariaLabel="reference" name="reference">自我效能（self-efficacy）</a>」調查中，台灣僅57％學生肯定自己具備同時處理多件事務的能力，遠低於OECD國家平均的70％。
             div.slide__src
               a(href="https://www.oecd-ilibrary.org/education/pisa-2018-results-volume-iii_a1401ebc-en" target="_blank" rel="noopener" ariaLabel="reference" name="reference" @click="handleOutlinkGA('自信心')") PISA完整報告：Students’ feelings
             div.slide-arrow-conttainer
