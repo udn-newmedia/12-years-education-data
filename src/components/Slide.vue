@@ -51,11 +51,17 @@ export default {
   min-height: 100vh
   padding: 64px 16px 0 16px
   margin-top: 4px
+  &:first-child
+    padding-top: 60vh
   @include pad
     padding: 64px 112px
+    &:first-child
+      padding: 64px 112px
   @include pc
     min-height: 125vh
     padding: 0 64px
+    &:first-child
+      padding: 0 64px
 
   h3
     display: inline-block

@@ -116,12 +116,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+$paddingBottom: 0
+
 .crucial-figures
   position: relative
   pointer-events: none
   overflow: hidden
   width: 100%
-  padding: 100vh 0 50vh 0
+  padding: 100vh 0 $paddingBottom 0
   background-color: #303236
 
 .crucial-figures__frame
@@ -135,7 +137,7 @@ export default {
     position: absolute
     top: auto
     // top: calc(100% - 150vh - 64px)
-    bottom: 50vh
+    bottom: $paddingBottom
 
 .crucial-figures__slides
   position: relative

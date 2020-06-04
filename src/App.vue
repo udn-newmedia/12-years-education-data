@@ -63,6 +63,7 @@
             p 根據PISA調查，台灣學生普遍認為教師可以提供學習協助，但只有57%學生認為「老師關注每位學生的學習」，比例在全球75國中倒數第四低；PISA也針對校長詢問教師表現，校長認為，有<strong>23％學生因「老師課堂準備不充分」影響學習表現</strong>，高出OECD國家平均10％。
             div.slide__src
               a(href="https://www.oecd-ilibrary.org/education/pisa-2018-results-volume-iii_617837e6-en" target="_blank" rel="noopener" ariaLabel="reference" name="reference" @click="handleOutlinkGA('教師一')") PISA完整報告（一）：<br>Teachers’ support and teaching practices
+              <br>
               a(href="https://www.oecd-ilibrary.org/education/pisa-2018-results-volume-iii_db2e5b3b-en" target="_blank" rel="noopener" ariaLabel="reference" name="reference" @click="handleOutlinkGA('教師二')") PISA完整報告（二）：<br>Teacher behaviour and student learning
             div.slide-arrow-conttainer
               NmdArrow(iconColor="#4891f2")

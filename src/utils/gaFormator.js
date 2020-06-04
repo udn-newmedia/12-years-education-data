@@ -70,22 +70,22 @@ const gaTable = {
     label: '願景工程_logo'
   },
   MenuLink_1: {
-    category: 'hamburger',
+    category: 'menu',
     action: 'click',
     label: '揭露課綱五大亂象'
   },
   MenuLink_2: {
-    category: 'hamburger',
+    category: 'menu',
     action: 'click',
     label: '台灣教育關鍵數字'
   },
   MenuLink_3: {
-    category: 'hamburger',
+    category: 'menu',
     action: 'click',
     label: '關於108課綱我想說'
   },
   MenuLink_4: {
-    category: 'hamburger',
+    category: 'menu',
     action: 'click',
     label: '更多課綱相關報導'
   },

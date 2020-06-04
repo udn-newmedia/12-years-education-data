@@ -1,8 +1,17 @@
 <template lang="pug">
-  article.card(:class="cardClassAttr" :style="{ transform: cardStyleTransform }")
-    section.card__cover(v-if="position === 'cover' && index === 0" :class="cardCoverClassAttr")
+  article.card(
+    :class="cardClassAttr"
+    :style="{ transform: cardStyleTransform }"
+  )
+    section.card__cover(
+      v-if="position === 'cover' && index === 0"
+      :class="cardCoverClassAttr"
+    )
       <slot name=cover />
-    section.card__content(v-if="hasContent" :class="cardContentClassAttr")
+    section.card__content(
+      v-if="hasContent"
+      :class="cardContentClassAttr"
+    )
       div.card__content__title__container
         <slot name=title />
       figure.card__content__chart__container
@@ -141,7 +150,7 @@ export default {
   pointer-events: auto
   position: absolute
   right: 8px
-  top: 64px
+  top: 30px
   width: 90vw
   height: 90vw
   padding: 16px
