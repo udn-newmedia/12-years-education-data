@@ -15,7 +15,7 @@
       div.card__content__title__container
         <slot name=title />
       figure.card__content__chart__container
-        img.card__content__chart(:src="cardChartSrcAttr")
+        img.card__content__chart(:src="cardChartSrcAttr" :alt="`chart-${index}`")
       figcaption.card__content__info
         div.card__content__note
           <slot name=note />
@@ -222,20 +222,22 @@ export default {
     position: relative
     width: 100%
     max-height: 20%
-    margin-bottom: 16px
+    // margin-bottom: 16px
     h4
       color: #4891f2
       text-align: center
       font-size: 1rem
       @include pc
         font-size: 1.315rem
+  figure
+    margin: 0
   .card__content__chart__container
     position: relative
     width: 90%
     min-height: 70%
     max-height: 90%
     text-align: center
-    margin-bottom: 16px
+    margin-bottom: 8px
     .card__content__chart
       object-fit: contain
       width: 100%

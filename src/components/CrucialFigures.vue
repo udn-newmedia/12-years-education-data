@@ -1,5 +1,5 @@
 <template lang="pug">
-  main.crucial-figures
+  section.crucial-figures
     section.crucial-figures__frame(:class="crucialFiguresFrameClassAttr")
       Marquee
       CardsCollector

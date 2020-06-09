@@ -102,8 +102,8 @@ export default {
     transform: translateX(-125%)
   @for $i from 1 through 10
     .marguee__hash--#{$i}
-      font-size: #{$i * 0.5}rem
-      animation: marquee #{$i * 2}s #{1 / ($i * 2)}s linear infinite
+      font-size: #{$i * 0.5 + 1}rem
+      animation: marquee #{$i + 2}s #{1 / ($i + 2)}s linear infinite
       @include pc
         font-size: #{$i * 0.75}rem
     .marguee__hash__content
