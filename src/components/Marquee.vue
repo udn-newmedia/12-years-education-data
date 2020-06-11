@@ -100,6 +100,8 @@ export default {
     text-shadow: 0 0 20px rgba(37, 61, 178, 0.96)
     white-space: nowrap
     transform: translateX(-125%)
+    font-weight: 800
+
   @for $i from 1 through 10
     .marguee__hash--#{$i}
       font-size: #{$i * 0.5 + 1}rem

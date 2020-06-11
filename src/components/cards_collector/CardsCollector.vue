@@ -7,7 +7,7 @@
           NmdArrow(iconColor="#4891f2")
       template(v-if="cardAmount-item === 1")
         h4(slot='title') 台灣近年學生人數與教育預算變化
-        p.small(slot='note') 註：學生人數教育部以學年為統計單位，預算則以年度為統計單位。
+        p.small(slot='note') 註：人數統計單位為學年，預算為年度。
         p.small(slot='source') 資料來源／教育部、主計總處
       template(v-if="cardAmount-item === 2")
         p.small(slot='note') 註：教師經費依據為教育部編列之「推動教師專業發展」、「推動教師專業成長」相關預算

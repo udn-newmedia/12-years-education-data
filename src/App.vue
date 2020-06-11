@@ -98,7 +98,10 @@
             p 聯合報新媒體中心、<br>視覺設計中心、<br>數據中心
           div
             p 監製
-            p 聯合報新聞部
+            p 蕭衡倩
+          div
+            p 
+            p 2020.07
         FooterLogo
         FooterFbComment
       PageBackTop

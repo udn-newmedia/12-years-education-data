@@ -201,7 +201,8 @@ export default {
   opacity: 0
   transition: .333s ease-in-out
   h1
-    color: #4891f2
+    // color: #4891f2
+    color: white
   &.card__cover--active
     opacity: 1
 
@@ -238,6 +239,11 @@ export default {
     max-height: 90%
     text-align: center
     margin-bottom: 8px
+    margin-top: 16px
+    @include smob
+      margin-top: 8px
+    @include pc
+      margin-top: 40px
     .card__content__chart
       object-fit: contain
       width: 100%
