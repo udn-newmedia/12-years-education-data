@@ -11,8 +11,8 @@ const footerContent = contentGenerator('../contents/footer.html');
 // const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/12-years-education/data/' : './';
 
 /* 測試路徑 */
-const mainPage = 'http://nmdap.udn.com.tw/test/12-years-education/';
-const pathRoot = process.env.NODE_ENV === 'production' ? 'http://nmdap.udn.com.tw/test/12-years-education/data/' : './';
+const mainPage = 'http://nmdap.udn.com.tw/newmedia/2020/12-years-education/';
+const pathRoot = process.env.NODE_ENV === 'production' ? 'http://nmdap.udn.com.tw/newmedia/2020/12-years-education/data/' : './';
 
 module.exports = {
   publicPath: pathRoot,

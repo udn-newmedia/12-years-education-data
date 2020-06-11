@@ -15,7 +15,7 @@
             href="https://udn.com/newmedia/2020/12-years-education/collect/"
             title="關於108課綱 我想說......"
             :img="require('~/img/related/r2.jpg')"
-            text="台灣教育經過一次又一次的教改，變得更好了嗎？從數據看到：學生成績好，但怕失敗、沒自信、不快樂；家長對教育充滿不信任......10張圖表，帶你看懂台灣教育現況。"
+            text="108課綱在爭議聲浪中上路，面對這一波20年來最大的教育改革，《聯合報》希望蒐集各界真實心聲，歡迎與我們分享你與孩子遇到的狀況、或寫下你對這一波新教改的想法。 "
           )
     div.related-articles__abstract
       Cards(size="s" :cardAmount="cardAmount")
