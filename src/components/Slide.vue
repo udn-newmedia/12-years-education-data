@@ -1,18 +1,22 @@
 <template lang="pug">
-  section.slide(:id="'slide-' + index")
+  div.slide(:id="'slide-' + index")
     slot
 </template>
 
 <script>
-import { scrollEvent } from '@/mixins/scrollEvent.js';
+import { ErikoScroller } from 'eriko-scroller.js';
 
 export default {
   name: 'Slide',
-  mixins: [scrollEvent],
   props: {
     index: {
       tpye: Number,
       required: true
+    }
+  },
+  data() {
+    return {
+      es: new ErikoScroller(),
     }
   },
   computed: {
@@ -31,27 +35,33 @@ export default {
     }
   },
   mounted() {
-    this.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
+    this.es.addObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
   },
   destroyed() {
-    this.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
+    this.es.removeObservableScrollEvent(`#slide-${this.index}`, this.observableScrollEventOption);
   },
 }
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .slide
+  position: relative
   pointer-events: auto
   width: 100%
   min-height: 100vh
   padding: 64px 16px 0 16px
-  // border: solid 1px red
+  margin-top: 4px
+  &:first-child
+    padding-top: 60vh
   @include pad
     padding: 64px 112px
+    &:first-child
+      padding: 64px 112px
   @include pc
     min-height: 125vh
     padding: 0 64px
+    &:first-child
+      padding: 0 64px
 
   h3
     display: inline-block
@@ -65,8 +75,6 @@ export default {
     background-color: #4891f2
   p
     color:#ffffff
-    .t-highlight
-      font-weight: bold
     a
       color:#ffffff
 
@@ -76,4 +84,9 @@ export default {
     margin-top: 48px
   a
     color: #8c8e93
+
+.slide-arrow-conttainer
+  pointer-events: none
+  margin-top: 64px
+  margin-left: 16px
 </style>

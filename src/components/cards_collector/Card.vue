@@ -1,13 +1,22 @@
 <template lang="pug">
-  div.card(:class="cardClassAttr" :style="{ transform: cardStyleTransform }")
-    div.card__cover(v-if="position === 'cover' && index === 0" :class="cardCoverClassAttr")
+  article.card(
+    :class="cardClassAttr"
+    :style="{ transform: cardStyleTransform }"
+  )
+    section.card__cover(
+      v-if="position === 'cover' && index === 0"
+      :class="cardCoverClassAttr"
+    )
       <slot name=cover />
-    div.card__content(v-if="hasContent" :class="cardContentClassAttr")
-      div.card__content__title__container()
+    section.card__content(
+      v-if="hasContent"
+      :class="cardContentClassAttr"
+    )
+      div.card__content__title__container
         <slot name=title />
-      div.card__content__chart__container
-        img.card__content__chart(:src="cardChartSrcAttr")
-      div.card__content__info
+      figure.card__content__chart__container
+        img.card__content__chart(:src="cardChartSrcAttr" :alt="`chart-${index}`")
+      figcaption.card__content__info
         div.card__content__note
           <slot name=note />
         div.card__content__source
@@ -137,12 +146,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .card
   pointer-events: auto
   position: absolute
   right: 8px
-  top: 64px
+  top: 30px
   width: 90vw
   height: 90vw
   padding: 16px
@@ -193,7 +201,8 @@ export default {
   opacity: 0
   transition: .333s ease-in-out
   h1
-    color: #4891f2
+    // color: #4891f2
+    color: white
   &.card__cover--active
     opacity: 1
 
@@ -214,20 +223,27 @@ export default {
     position: relative
     width: 100%
     max-height: 20%
-    margin-bottom: 16px
+    // margin-bottom: 16px
     h4
       color: #4891f2
       text-align: center
       font-size: 1rem
       @include pc
         font-size: 1.315rem
+  figure
+    margin: 0
   .card__content__chart__container
     position: relative
     width: 90%
     min-height: 70%
     max-height: 90%
     text-align: center
-    margin-bottom: 16px
+    margin-bottom: 8px
+    margin-top: 16px
+    @include smob
+      margin-top: 8px
+    @include pc
+      margin-top: 40px
     .card__content__chart
       object-fit: contain
       width: 100%
@@ -243,4 +259,12 @@ export default {
       a
         color: #8c8e93
   
+header
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  
+  h1
+    margin-bottom: 16px
 </style>

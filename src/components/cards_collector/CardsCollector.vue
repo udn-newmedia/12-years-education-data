@@ -2,10 +2,12 @@
   div.cards-collector
     Card(v-for="item in cardAmount" :key="item" :index="cardAmount-item" position="cover")
       template(v-if="cardAmount-item === 0")
-        h1(slot='cover') 10個關鍵數字<br>看懂台灣教育
+        header(slot='cover')
+          h1 10個關鍵數字<br>看懂台灣教育
+          NmdArrow(iconColor="#4891f2")
       template(v-if="cardAmount-item === 1")
         h4(slot='title') 台灣近年學生人數與教育預算變化
-        p.small(slot='note') 註：學生人數教育部以學年為統計單位，預算則以年度為統計單位。
+        p.small(slot='note') 註：人數統計單位為學年，預算為年度。
         p.small(slot='source') 資料來源／教育部、主計總處
       template(v-if="cardAmount-item === 2")
         p.small(slot='note') 註：教師經費依據為教育部編列之「推動教師專業發展」、「推動教師專業成長」相關預算
@@ -38,18 +40,23 @@
       template(v-if="cardAmount-item === 10")
         h4(slot='title') 補習費用與家數變化
         p.small(slot='source') 資料來源／教育部
+      template(v-if="cardAmount-item === 11")
+        h4(slot='title') 高中生近5年海外留學人數
+        p.small(slot='source') 資料來源／教育部
 </template>
 
 <script>
 import { autoResize_3 } from '@/mixins/masterBuilder.js';
 
 import Card from './Card.vue';
+import NmdArrow from '@/components/pinhead/NmdArrow.vue';
 
 export default {
   name: 'CardsCollector',
   mixins: [autoResize_3],
   components: {
     Card,
+    NmdArrow
   },
   computed: {
     cardAmount() {
@@ -65,7 +72,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .cards-collector
   position: relative
   pointer-events: none

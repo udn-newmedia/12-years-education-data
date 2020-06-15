@@ -1,13 +1,13 @@
 <template lang="pug">
-  div.crucial-figures
-    div.crucial-figures__frame(:class="crucialFiguresFrameClassAttr")
+  section.crucial-figures
+    section.crucial-figures__frame(:class="crucialFiguresFrameClassAttr")
       Marquee
       CardsCollector
       Progress(v-show="!this.$store.state.isCrucialFiguresInitial")
-    div#slides.crucial-figures__slides-container
-      div.crucial-figures__slides__decoration(:class="crucialFiguresSlidesMaskClassAttr")
+    section#slides.crucial-figures__slides-container
+      header.crucial-figures__slides__decoration(:class="crucialFiguresSlidesMaskClassAttr")
         div.crucial-figures__slides__decoration__title(v-if="deviceType === 'pc'" :class="decorationShowClassAttr") {{decorationTitle}}
-      div.crucial-figures__slides
+      article.crucial-figures__slides
         slot
       div.crucial-figures__slides__decoration(:class="crucialFiguresSlidesMaskClassAttr")
         div.crucial-figures__slides__decoration__body
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { scrollEvent } from '@/mixins/scrollEvent.js';
+import { ErikoScroller } from 'eriko-scroller.js';
 import { autoResize_3 } from '@/mixins/masterBuilder.js';
 
 import CardsCollector from '@/components/cards_collector/CardsCollector.vue';
@@ -29,7 +29,7 @@ import Progress from '@/components/Progress.vue';
 
 export default {
   name: 'CrucialFigures',
-  mixins: [scrollEvent, autoResize_3],
+  mixins: [autoResize_3],
   components: {
     CardsCollector,
     Marquee,
@@ -50,26 +50,8 @@ export default {
         9: '私中風氣',
         10: '補習費增',
       },
+      es: new ErikoScroller(),
     };
-  },
-  methods: {
-    handleEnterEvent() {
-      this.isCffAtBottom = false;
-      if (this.$store.state.isCrucialFiguresInitial) {
-        this.$store.dispatch('updatedIsCrucialFiguresInitial', false);
-      }
-    },
-    handleLeaveEvent() {
-      if (!this.$store.state.isCrucialFiguresInitial) {
-        this.$store.dispatch('updatedIsCrucialFiguresInitial', true);
-      }
-    },
-    handleAboveEvent() {
-      this.$store.dispatch('updatedCurrentSlideIndex', 0);
-    },
-    handleUnderEvent() {
-      this.isCffAtBottom = true;
-    }
   },
   computed: {
     crucialFiguresFrameClassAttr() {
@@ -105,23 +87,43 @@ export default {
       return { 'decoration-item-disabled': this.$store.state.isCrucialFiguresInitial }
     }
   },
+  methods: {
+    handleEnterEvent() {
+      this.isCffAtBottom = false;
+      if (this.$store.state.isCrucialFiguresInitial) {
+        this.$store.dispatch('updatedIsCrucialFiguresInitial', false);
+      }
+    },
+    handleLeaveEvent() {
+      if (!this.$store.state.isCrucialFiguresInitial) {
+        this.$store.dispatch('updatedIsCrucialFiguresInitial', true);
+      }
+    },
+    handleAboveEvent() {
+      this.$store.dispatch('updatedCurrentSlideIndex', 0);
+    },
+    handleUnderEvent() {
+      this.isCffAtBottom = true;
+    }
+  },
   mounted() {
-    this.addObservableScrollEvent('#slides', this.observableScrollEventOption);
+    this.es.addObservableScrollEvent('#slides', this.observableScrollEventOption);
   },
   destroyed() {
-    this.removeObservableScrollEvent('#slides', this.observableScrollEventOption);
+    this.es.removeObservableScrollEvent('#slides', this.observableScrollEventOption);
   },
 }
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
+$paddingBottom: 0
+
 .crucial-figures
   position: relative
   pointer-events: none
   overflow: hidden
   width: 100%
-  padding: 100vh 0 50vh 0
+  padding: 100vh 0 $paddingBottom 0
   background-color: #303236
 
 .crucial-figures__frame
@@ -135,7 +137,7 @@ export default {
     position: absolute
     top: auto
     // top: calc(100% - 150vh - 64px)
-    bottom: 50vh
+    bottom: $paddingBottom
 
 .crucial-figures__slides
   position: relative

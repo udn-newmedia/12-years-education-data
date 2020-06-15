@@ -1,5 +1,5 @@
 <template>
-  <div
+  <nav
     v-if="!simplified"
     :class="{
       'header-menu': true,
@@ -16,7 +16,7 @@
     >
       <slot />
     </div>
-  </div>
+  </nav>
   <div v-else
     :class="{
       'header-menu-simplified': true,
@@ -63,7 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/style/_mixins.scss';
 .header-menu {
   position: absolute;
   visibility: hidden;

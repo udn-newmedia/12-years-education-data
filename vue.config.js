@@ -12,6 +12,7 @@ module.exports = {
   publicPath,
   pages,
   chainWebpack: (config) => {
+    config.module.rules.delete('eslint');
     config.module
       .rule("pug")
       .test(/\.pug$/)
@@ -21,4 +22,14 @@ module.exports = {
     config.resolve.alias
       .set('~', resolve('src/assets'));
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `@import "@/assets/style/_mixins.scss"`
+      },
+      scss: {
+        prependData: `@import "@/assets/style/_mixins.scss";`
+      },
+    }
+  }
 };

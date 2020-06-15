@@ -74,7 +74,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .marquee
   position: absolute
   pointer-events: none
@@ -100,10 +99,13 @@ export default {
     color: #486a98
     text-shadow: 0 0 20px rgba(37, 61, 178, 0.96)
     white-space: nowrap
+    transform: translateX(-125%)
+    font-weight: 800
+
   @for $i from 1 through 10
     .marguee__hash--#{$i}
-      font-size: #{$i * 0.5}rem
-      animation: marquee #{$i * 1.5}s linear infinite
+      font-size: #{$i * 0.5 + 1}rem
+      animation: marquee #{$i + 2}s #{1 / ($i + 2)}s linear infinite
       @include pc
         font-size: #{$i * 0.75}rem
     .marguee__hash__content
@@ -112,7 +114,7 @@ export default {
 
   @keyframes marquee
     0%
-      transform: translateX(-100%)
+      transform: translateX(-150%)
     50%
       transform: translateX(0%)
     100%

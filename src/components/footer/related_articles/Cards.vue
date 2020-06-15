@@ -54,13 +54,17 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
+$heightLarge: 960px
+$heightLarge-smob: 1000px
+
 .cards-container
   position: relative
   &.cards-container--small
     height: 192px
   &.cards-container--large
-    height: 840px
+    height: $heightLarge
+    @include smob
+      height: $heightLarge-smob
     @include pad
       height: 540px
     @include pc
@@ -94,8 +98,10 @@ export default {
   &.card--large
     right: -16px
     width: 85vw
-    height: 840px
+    height: $heightLarge
     padding: 96px 24px
+    @include smob
+      height: $heightLarge-smob
     @include pad
       right: 0
       width: 80vw

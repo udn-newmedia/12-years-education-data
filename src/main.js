@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store';
-import '~/style/main.scss';
 import { rwdMethods } from '@/mixins/masterBuilder.js';
-// import InApp from 'detect-inapp';
+import myDebugger from '@/utils/debugger.js';
+import '~/style/main.scss';
 
 Vue.config.productionTip = false
-Window.Promise = Promise;
 
 new Vue({
   store,
@@ -18,3 +17,7 @@ new Vue({
 window.onload = () => {
   document.getElementsByTagName('iframe')[0].style.top = 0;
 };
+
+/* debugger */
+window.addBorder = myDebugger.addBorder;
+window.removeBorder = myDebugger.removeBorder;

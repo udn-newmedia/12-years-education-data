@@ -5,8 +5,18 @@
         div.related-articles__articles__title
           h4 更多報導
         div.related-articles__articles__links
-          Link(href="" title="108課綱上路周年追蹤報導" :img="require('~/img/related/r1.jpg')" text="地震後成為父母雙亡的孤兒如今都已長大，走過成長過程裡的淚水。")
-          Link(href="" title="關於108課綱 我想說......" :img="require('~/img/related/r2.jpg')" text="地震後成為父母雙亡的孤兒如今都已長大，走過成長過程裡的淚水。")
+          Link(
+            href="https://udn.com/newmedia/2020/12-years-education/problem/"
+            title="108課綱上路周年追蹤報導"
+            :img="require('~/img/related/r1.jpg')"
+            text="108課綱上路將滿1年，政府砸入大量預算，推動這波被教育界喻為「20年大躍進」的新教改，但《聯合報》追蹤調查，教學現場已出現五大亂象，讓課綱精神變了調。"
+          )
+          Link(
+            href="https://udn.com/newmedia/2020/12-years-education/collect/"
+            title="關於108課綱 我想說......"
+            :img="require('~/img/related/r2.jpg')"
+            text="108課綱在爭議聲浪中上路，面對這一波20年來最大的教育改革，《聯合報》希望蒐集各界真實心聲，歡迎與我們分享你與孩子遇到的狀況、或寫下你對這一波新教改的想法。 "
+          )
     div.related-articles__abstract
       Cards(size="s" :cardAmount="cardAmount")
         p 十二年國教課程綱要（108課綱）是台灣近20年來最大的一波教育改革，這波教改，會是改變台灣教育的契機嗎？
@@ -40,7 +50,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .related-articles
   position: relative
   overflow: hidden

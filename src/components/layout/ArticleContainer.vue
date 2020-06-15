@@ -1,5 +1,5 @@
 <template>
-  <div class="article-container"
+  <article class="article-container"
     :style="{
       backgroundColor: bgColor,
     }"
@@ -7,7 +7,7 @@
     <div class="article">
       <slot />
     </div>
-  </div>
+  </article>
 </template>
 
 <script>

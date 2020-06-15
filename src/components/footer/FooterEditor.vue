@@ -1,7 +1,7 @@
 <template>
-  <div class="footer-editor">
+  <section class="footer-editor">
     <slot></slot>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -11,7 +11,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/style/_mixins.scss';
 .footer-editor {
   width: 100%;
   margin-bottom: 16px;

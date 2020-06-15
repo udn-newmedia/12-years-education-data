@@ -1,5 +1,5 @@
 <template>
-  <div class="page-cover"
+  <section class="page-cover"
     :style="{
       backgroundImage: 'url(' + selectSrc_3(srcMob, srcPad, srcPc) + ')'
     }"
@@ -20,7 +20,7 @@
       <NmdArrow />
     </div>
     <div class="page-cover__enter-anchor" id="enter-anchor" />
-  </div>
+  </section>
 </template>
 
 <script>
@@ -106,7 +106,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/style/_mixins.scss';
 .page-cover {
   position: relative;
   overflow: hidden;

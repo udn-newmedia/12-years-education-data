@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.progress
+  section.progress
     div.progress-item(v-for="item in cardAmount" :key="item" :class="progressItemClassAttr(item)")
 </template>
 
@@ -20,7 +20,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '~/style/_mixins.scss'
 .progress
   position: absolute
   bottom: 16px
