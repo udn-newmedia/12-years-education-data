@@ -43,7 +43,6 @@
       template(v-if="cardAmount-item === 11")
         h4(slot='title') 高中生近5年海外留學人數
         p.small(slot='source') 資料來源／教育部
-        
 </template>
 
 <script>
