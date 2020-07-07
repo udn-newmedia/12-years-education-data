@@ -92,6 +92,7 @@ export default {
     padding: 24px 32px;
     text-align: justify;
     background-color: #ffffff;
+    min-height: 96px;
     @include pc {
       padding: 24px;
     }

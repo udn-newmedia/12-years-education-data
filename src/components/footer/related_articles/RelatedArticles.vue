@@ -13,7 +13,7 @@
           )
           Link(
             href="https://udn.com/newmedia/2020/12-years-education/collect/"
-            title="關於108課綱 我想說......"
+            title="寫下你的教改心聲"
             :img="require('~/img/related/r2.jpg')"
             text="108課綱在爭議聲浪中上路，面對這一波20年來最大的教育改革，《聯合報》希望蒐集各界真實心聲，歡迎與我們分享你與孩子遇到的狀況、或寫下你對這一波新教改的想法。 "
           )
