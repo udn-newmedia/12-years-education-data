@@ -30,7 +30,14 @@
           rel="noopener"
           @click="sendGA({category: 'menu', action: 'click', label: '寫下你的教改心聲'})"
         ) 寫下你的教改心聲
-
+        a(
+          href="https://udn.com/search/word/2/108課綱"
+          target="_blank"
+          rel="noopener"
+          aria-label="outlink"
+          name="outlink"
+          @click="sendGA({category: 'menu', action: 'click', label: '更多課綱相關報導'})"
+        ) 更多課綱相關報導
       CrucialFigures(slot="main")
         Slide(v-for="item in $store.state.cardAmount" :key="item" :index="item")
           template(v-if="item === 1")
