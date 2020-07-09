@@ -4,10 +4,40 @@
       PageIndicator(slot="progress")
       HeaderTypeA(slot="header" theme="dark")
         a(href="https://udn.com/newmedia/2020/12-years-education/problem" target="_blank" rel="noopener" aria-label="outlink" name="outlink" @click="sendGA(formatGA('MenuLink_1'))") 揭露課綱五大亂象
+        a(
+          :class="{'header-menu-link--disabled': !isAfterOnlineDate}"
+          :href="isAfterOnlineDate ? '../poll/' : '#'"
+          target="_blank"
+          rel="noopener"
+          @click="sendGA({category: 'menu', action: 'click', label: '108課綱上路周年大調查'})"
+        ) <span v-if="isAfterOnlineDate">108</span>課綱上路周年大調查<span  v-if="!isAfterOnlineDate"class="menu-item__online-date">（07/13上線）</span>
         a(class="active") 台灣教育關鍵數字
-        a(href="https://udn.com/newmedia/2020/12-years-education/collect" target="_blank" rel="noopener" aria-label="outlink" name="outlink" @click="sendGA(formatGA('MenuLink_3'))") 關於108課綱 我想說......
-        a(href="https://udn.com/search/word/2/108課綱" target="_blank" rel="noopener" aria-label="outlink" name="outlink" @click="sendGA(formatGA('MenuLink_4'))") 更多課綱相關報導
-
+        a(
+          href="../"
+          target="_blank"
+          rel="noopener"
+          @click="sendGA({category: 'menu', action: 'click', label: '台灣教改為何總失敗'})"
+        ) 台灣教改為何總失敗
+        a(
+          href="../story/"
+          target="_blank"
+          rel="noopener"
+          @click="sendGA({category: 'menu', action: 'click', label: '一個家庭看台灣升學主義'})"
+        ) 一個家庭看台灣升學主義
+        a(
+          href="../collect/"
+          target="_blank"
+          rel="noopener"
+          @click="sendGA({category: 'menu', action: 'click', label: '寫下你的教改心聲'})"
+        ) 寫下你的教改心聲
+        a(
+          href="https://udn.com/search/word/2/108課綱"
+          target="_blank"
+          rel="noopener"
+          aria-label="outlink"
+          name="outlink"
+          @click="sendGA({category: 'menu', action: 'click', label: '更多課綱相關報導'})"
+        ) 更多課綱相關報導
       CrucialFigures(slot="main")
         Slide(v-for="item in $store.state.cardAmount" :key="item" :index="item")
           template(v-if="item === 1")
@@ -94,14 +124,14 @@
             p 網頁製作
             p 楊若榆
           div
-            p 製作單位
-            p 聯合報新媒體中心、<br>視覺設計中心、<br>數據中心
-          div
             p 監製
             p 蕭衡倩
           div
+            p 製作單位
+            p 聯合報新媒體中心、<br>視覺設計中心、<br>數據中心
+          div
             p 
-            p 2020.07
+            p 2020.07.09
         FooterLogo
         FooterFbComment
       PageBackTop
@@ -109,6 +139,7 @@
 
 <script>
 import { sendGaMethods } from '@/mixins/masterBuilder.js';
+import isAfterOnlineDate from '@/mixins/handleOnlineDate.js';
 
 import Defalut from '@/layouts/default.vue';
 
@@ -125,7 +156,7 @@ import Slide from '@/components/Slide.vue';
 
 export default {
   name: 'App',
-  mixins: [sendGaMethods],
+  mixins: [sendGaMethods, isAfterOnlineDate],
   components: {
     Defalut,
     CrucialFigures,
@@ -152,6 +183,7 @@ export default {
 </script>
 
 <style lang="sass">
+@import '~/style/menu_item_disabled.scss'
 body
   background-color: #303236
 #app

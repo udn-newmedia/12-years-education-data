@@ -1,0 +1,10 @@
+a.header-menu-link--disabled {
+  pointer-events: none;
+  cursor: not-allowed !important;
+}
+
+.menu-item__online-date {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #00ccb1;
+}
