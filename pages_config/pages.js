@@ -7,12 +7,12 @@ const mainContent = contentGenerator('../contents/main.html');
 const footerContent = contentGenerator('../contents/footer.html');
 
 /* 正式路徑 */
-// const mainPage = 'https://udn.com/newmedia/2020/12-years-education/';
-// const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/12-years-education/data/' : './';
+const mainPage = 'https://udn.com/newmedia/2020/12-years-education/';
+const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/12-years-education/data/' : './';
 
 /* 測試路徑 */
-const mainPage = 'https://nmdap.udn.com.tw/newmedia/2020/12-years-education/';
-const pathRoot = process.env.NODE_ENV === 'production' ? 'https://nmdap.udn.com.tw/newmedia/2020/12-years-education/data/' : './';
+// const mainPage = 'https://nmdap.udn.com.tw/newmedia/2020/12-years-education/';
+// const pathRoot = process.env.NODE_ENV === 'production' ? 'https://nmdap.udn.com.tw/newmedia/2020/12-years-education/data/' : './';
 
 module.exports = {
   publicPath: pathRoot,
